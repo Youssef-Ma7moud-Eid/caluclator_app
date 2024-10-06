@@ -68,7 +68,7 @@ class ButtomCubit extends Cubit<Allstate> {
             } else if (exp == "%") {
               result %= double.parse(introval);
             }
-            exp = "";
+            exp = appear[i];
             introval = "";
           } else {
             if (introval == "" && appear[i] == '-') {
@@ -86,7 +86,23 @@ class ButtomCubit extends Cubit<Allstate> {
         }
       }
       if (result == 0) {
-        result = (double.parse(introval));
+        if (exp == "") {
+          result = (double.parse(introval));
+        } else {
+          if (exp == "+") {
+            result += double.parse(introval);
+          } else if (exp == "-") {
+            result -= double.parse(introval);
+          } else if (exp == "x") {
+            result *= double.parse(introval);
+          } else if (exp == "/") {
+            result /= double.parse(introval);
+          } else if (exp == "%") {
+            result %= double.parse(introval);
+          }
+          exp = "";
+          introval = "";
+        }
         if (firstexp) {
           result *= -1;
           firstexp = false;
