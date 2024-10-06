@@ -125,6 +125,9 @@ class ButtomCubit extends Cubit<Allstate> {
         introval = "";
       }
       appear = result.toString();
+      if (result == -0.0) {
+        result = 0.0;
+      }
       emit(Resullt());
     } else {
       emit(Invaildinput());
